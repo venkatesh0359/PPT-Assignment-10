@@ -1,1 +1,31 @@
+import java.util.Scanner;
+
+public class Question6 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number of disks: ");
+        int n = scanner.nextInt();
+
+        char[] rods = {'A', 'B', 'C'};
+
+        moveDisks(n, rods[0], rods[2], rods[1]);
+
+        System.out.println("The total number of moves is " + moves);
+    }
+
+    private static void moveDisks(int n, char from, char to, char aux) {
+        if (n == 1) {
+            System.out.println("move disk " + n + " from " + from + " to " + to);
+        } else {
+            moveDisks(n - 1, from, aux, to);
+
+            System.out.println("move disk " + n + " from " + from + " to " + to);
+
+            moveDisks(n - 1, aux, to, from);
+        }
+    }
+
+    private static int moves = 0;
+}
 
