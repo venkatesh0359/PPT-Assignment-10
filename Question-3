@@ -1,1 +1,35 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Question3 {
+
+  public static List<String> getSubsets(String set) {
+    List<String> subsets = new ArrayList<>();
+    getSubsets(set, 0, subsets);
+    return subsets;
+  }
+
+  private static void getSubsets(String set, int index, List<String> subsets) {
+    if (index == set.length()) {
+      subsets.add("");
+      return;
+    }
+
+    getSubsets(set, index + 1, subsets);
+
+    // Add the current character to all the subsets generated so far.
+    for (String subset : subsets) {
+      subsets.add(subset + set.charAt(index));
+    }
+  }
+
+  public static void main(String[] args) {
+    String set = "abc";
+    List<String> subsets = getSubsets(set);
+
+    for (String subset : subsets) {
+      System.out.println(subset);
+    }
+  }
+}
 
