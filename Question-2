@@ -1,1 +1,30 @@
+public class Question2 {
+
+  public static int lastNumber(int n) {
+    int[] arr = new int[n];
+    for (int i = 0; i < n; i++) {
+      arr[i] = i + 1;
+    }
+
+    while (arr.length > 1) {
+      if (arr.length % 2 == 1) {
+        // Remove the first number.
+        arr = Arrays.copyOfRange(arr, 1, arr.length);
+      } else {
+        // Remove every other number from the right.
+        for (int i = 0; i < arr.length / 2; i++) {
+          arr[i] = arr[arr.length - 1 - i];
+        }
+        arr = Arrays.copyOfRange(arr, 0, arr.length / 2);
+      }
+    }
+
+    return arr[0];
+  }
+
+  public static void main(String[] args) {
+    System.out.println(lastNumber(9)); // 6
+    System.out.println(lastNumber(1)); // 1
+  }
+}
 
