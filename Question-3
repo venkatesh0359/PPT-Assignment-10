@@ -17,7 +17,6 @@ public class Question3 {
 
     getSubsets(set, index + 1, subsets);
 
-    // Add the current character to all the subsets generated so far.
     for (String subset : subsets) {
       subsets.add(subset + set.charAt(index));
     }
